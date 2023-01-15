@@ -1,0 +1,19 @@
+[2023-01-15T09:40:56.160+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline manual__2023-01-15T07:40:48.681587+00:00 [queued]>
+[2023-01-15T09:40:56.230+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline manual__2023-01-15T07:40:48.681587+00:00 [queued]>
+[2023-01-15T09:40:56.231+0200] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T09:40:56.232+0200] {taskinstance.py:1284} INFO - Starting attempt 1 of 6
+[2023-01-15T09:40:56.233+0200] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T09:40:56.322+0200] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): etl_pipeline> on 2023-01-15 07:40:48.681587+00:00
+[2023-01-15T09:40:56.397+0200] {standard_task_runner.py:55} INFO - Started process 29931 to run task
+[2023-01-15T09:40:56.417+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'etl_pipeline', 'manual__2023-01-15T07:40:48.681587+00:00', '--job-id', '216', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmpgezwtrdk']
+[2023-01-15T09:40:56.427+0200] {standard_task_runner.py:83} INFO - Job 216: Subtask etl_pipeline
+[2023-01-15T09:40:57.002+0200] {task_command.py:389} INFO - Running <TaskInstance: railway_v02.etl_pipeline manual__2023-01-15T07:40:48.681587+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-01-15T09:40:57.639+0200] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=etl_pipeline
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-15T07:40:48.681587+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-15T07:40:48.681587+00:00

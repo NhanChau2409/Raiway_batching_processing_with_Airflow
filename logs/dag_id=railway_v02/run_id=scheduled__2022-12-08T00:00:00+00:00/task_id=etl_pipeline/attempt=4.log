@@ -1,0 +1,98 @@
+[2023-01-15T10:24:32.785+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-08T00:00:00+00:00 [queued]>
+[2023-01-15T10:24:32.799+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-08T00:00:00+00:00 [queued]>
+[2023-01-15T10:24:32.800+0200] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T10:24:32.800+0200] {taskinstance.py:1284} INFO - Starting attempt 4 of 6
+[2023-01-15T10:24:32.800+0200] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T10:24:32.819+0200] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): etl_pipeline> on 2022-12-08 00:00:00+00:00
+[2023-01-15T10:24:32.835+0200] {standard_task_runner.py:55} INFO - Started process 20622 to run task
+[2023-01-15T10:24:32.873+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'etl_pipeline', 'scheduled__2022-12-08T00:00:00+00:00', '--job-id', '351', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmp_3uh2j4u']
+[2023-01-15T10:24:32.884+0200] {standard_task_runner.py:83} INFO - Job 351: Subtask etl_pipeline
+[2023-01-15T10:24:33.091+0200] {task_command.py:389} INFO - Running <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-08T00:00:00+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-01-15T10:24:33.237+0200] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=etl_pipeline
+AIRFLOW_CTX_EXECUTION_DATE=2022-12-08T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-12-08T00:00:00+00:00
+[2023-01-15T10:26:43.122+0200] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/decorators/base.py", line 217, in execute
+    return_value = super().execute(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/dags/fetching_api.py", line 101, in etl_pipeline
+    df_flaten_dict = {k: flaten_df(v) for (k,v) in df_dict.items()}
+  File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/dags/fetching_api.py", line 101, in <dictcomp>
+    df_flaten_dict = {k: flaten_df(v) for (k,v) in df_dict.items()}
+  File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/dags/fetching_api.py", line 84, in flaten_df
+    .rdd.flatMap(lambda x: x)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/sql/dataframe.py", line 175, in rdd
+    jrdd = self._jdf.javaToPython()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/java_gateway.py", line 1321, in __call__
+    return_value = get_return_value(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/sql/utils.py", line 190, in deco
+    return f(*a, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o184.javaToPython.
+: org.apache.spark.SparkException: Job 2 cancelled because SparkContext was shut down
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1(DAGScheduler.scala:1188)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1$adapted(DAGScheduler.scala:1186)
+	at scala.collection.mutable.HashSet.foreach(HashSet.scala:79)
+	at org.apache.spark.scheduler.DAGScheduler.cleanUpAfterSchedulerStop(DAGScheduler.scala:1186)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onStop(DAGScheduler.scala:2887)
+	at org.apache.spark.util.EventLoop.stop(EventLoop.scala:84)
+	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:2784)
+	at org.apache.spark.SparkContext.$anonfun$stop$11(SparkContext.scala:2095)
+	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1484)
+	at org.apache.spark.SparkContext.stop(SparkContext.scala:2095)
+	at org.apache.spark.SparkContext.$anonfun$new$35(SparkContext.scala:660)
+	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:2066)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.util.Try$.apply(Try.scala:213)
+	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+
+[2023-01-15T10:26:43.447+0200] {taskinstance.py:1322} INFO - Marking task as UP_FOR_RETRY. dag_id=railway_v02, task_id=etl_pipeline, execution_date=20221208T000000, start_date=20230115T082432, end_date=20230115T082643
+[2023-01-15T10:26:43.517+0200] {standard_task_runner.py:100} ERROR - Failed to execute job 351 for task etl_pipeline (An error occurred while calling o184.javaToPython.
+: org.apache.spark.SparkException: Job 2 cancelled because SparkContext was shut down
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1(DAGScheduler.scala:1188)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$cleanUpAfterSchedulerStop$1$adapted(DAGScheduler.scala:1186)
+	at scala.collection.mutable.HashSet.foreach(HashSet.scala:79)
+	at org.apache.spark.scheduler.DAGScheduler.cleanUpAfterSchedulerStop(DAGScheduler.scala:1186)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onStop(DAGScheduler.scala:2887)
+	at org.apache.spark.util.EventLoop.stop(EventLoop.scala:84)
+	at org.apache.spark.scheduler.DAGScheduler.stop(DAGScheduler.scala:2784)
+	at org.apache.spark.SparkContext.$anonfun$stop$11(SparkContext.scala:2095)
+	at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1484)
+	at org.apache.spark.SparkContext.stop(SparkContext.scala:2095)
+	at org.apache.spark.SparkContext.$anonfun$new$35(SparkContext.scala:660)
+	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:2066)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.util.Try$.apply(Try.scala:213)
+	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+; 20622)

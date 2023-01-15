@@ -1,0 +1,2 @@
+[2023-01-15T12:23:27.031+0200] {taskinstance.py:1077} INFO - Dependencies not met for <TaskInstance: railway_v02.visualize_data scheduled__2023-01-04T00:00:00+00:00 [queued]>, dependency 'Trigger Rule' FAILED: Task's trigger rule 'all_success' requires all upstream tasks to have succeeded, but found 1 non-success(es). upstream_states=_UpstreamTIStates(success=0, skipped=0, failed=0, upstream_failed=0, removed=0, done=0), upstream_task_ids={'etl_pipeline'}
+[2023-01-15T12:23:27.040+0200] {local_task_job.py:98} INFO - Task is not able to be run

@@ -1,0 +1,42 @@
+[2023-01-15T09:41:01.187+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-12T00:00:00+00:00 [queued]>
+[2023-01-15T09:41:01.285+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-12T00:00:00+00:00 [queued]>
+[2023-01-15T09:41:01.286+0200] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T09:41:01.291+0200] {taskinstance.py:1284} INFO - Starting attempt 1 of 6
+[2023-01-15T09:41:01.292+0200] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T09:41:01.370+0200] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): etl_pipeline> on 2022-12-12 00:00:00+00:00
+[2023-01-15T09:41:01.457+0200] {standard_task_runner.py:55} INFO - Started process 30086 to run task
+[2023-01-15T09:41:01.486+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'etl_pipeline', 'scheduled__2022-12-12T00:00:00+00:00', '--job-id', '227', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmp6f1mcgyi']
+[2023-01-15T09:41:01.497+0200] {standard_task_runner.py:83} INFO - Job 227: Subtask etl_pipeline
+[2023-01-15T09:41:02.437+0200] {task_command.py:389} INFO - Running <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-12T00:00:00+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-01-15T09:41:02.922+0200] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=etl_pipeline
+AIRFLOW_CTX_EXECUTION_DATE=2022-12-12T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-12-12T00:00:00+00:00
+[2023-01-15T11:08:50.978+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-12T00:00:00+00:00 [queued]>
+[2023-01-15T11:08:50.994+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-12T00:00:00+00:00 [queued]>
+[2023-01-15T11:08:50.996+0200] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T11:08:50.996+0200] {taskinstance.py:1284} INFO - Starting attempt 1 of 6
+[2023-01-15T11:08:50.997+0200] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T11:08:51.008+0200] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): etl_pipeline> on 2022-12-12 00:00:00+00:00
+[2023-01-15T11:08:51.018+0200] {standard_task_runner.py:55} INFO - Started process 7383 to run task
+[2023-01-15T11:08:51.023+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'etl_pipeline', 'scheduled__2022-12-12T00:00:00+00:00', '--job-id', '422', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmpxpe4k98i']
+[2023-01-15T11:08:51.026+0200] {standard_task_runner.py:83} INFO - Job 422: Subtask etl_pipeline
+[2023-01-15T11:08:51.100+0200] {task_command.py:389} INFO - Running <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-12T00:00:00+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-01-15T11:08:51.167+0200] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=etl_pipeline
+AIRFLOW_CTX_EXECUTION_DATE=2022-12-12T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-12-12T00:00:00+00:00
+[2023-01-15T11:09:33.937+0200] {python.py:177} INFO - Done. Returned value was: None
+[2023-01-15T11:09:33.968+0200] {taskinstance.py:1322} INFO - Marking task as SUCCESS. dag_id=railway_v02, task_id=etl_pipeline, execution_date=20221212T000000, start_date=20230115T090850, end_date=20230115T090933
+[2023-01-15T11:09:34.012+0200] {local_task_job.py:159} INFO - Task exited with return code 0
+[2023-01-15T11:09:34.048+0200] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

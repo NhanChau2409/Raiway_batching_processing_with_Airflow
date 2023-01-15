@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.decorators import dag, task
 
 import requests as re
 import json
@@ -9,15 +10,20 @@ from pyspark.sql import functions as F
 from pyspark.sql import DataFrame
 from pyspark.sql.types import ArrayType, StructType, MapType
 
+
 # To succes in pulling API from Airflow
 import os
 os.environ["no_proxy"]="*"
 
 
+# import psycopg2
+# import pandas as pd
+# from sqlalchemy import create_engine
+# # import matplotlib.pyplot as plt
 
 
 
-
+@task()
 def etl_pipeline():
     
     PATH_TO_JAR_POSTGRE = '/Users/nhanchau/Desktop/postgresql-42.5.1.jar'
@@ -54,10 +60,7 @@ def etl_pipeline():
 
         while len(complex_fields) != 0: 
             col_name = list(complex_fields.keys())[0]
-            # print ("Processing :"+col_name+" Type : "+str(type(complex_fields[col_name])))
-
-            # if StructType then convert all sub element to columns.
-            # i.e. flatten structs
+            
             if type(complex_fields[col_name]) == StructType:
                 expanded = [
                     F.col(col_name + "." + k).alias(col_name + sep + k)
@@ -65,13 +68,9 @@ def etl_pipeline():
                 ]
                 df = df.select("*", *expanded).drop(col_name)
 
-            # if ArrayType then add the Array Elements as Rows using the explode function
-            # i.e. explode Arrays
             elif type(complex_fields[col_name]) == ArrayType:
                 df = df.withColumn(col_name, F.explode_outer(col_name))
 
-            # if MapType then convert all sub element to columns.
-            # i.e. flatten
             elif type(complex_fields[col_name]) == MapType:
                 keys = (df.select(F.explode(col_name))
                         .select("key")
@@ -80,7 +79,8 @@ def etl_pipeline():
                         .collect())
                 
                 df = df.select('*', *[F.col(col_name).getItem(k).alias(col_name + sep + k) for k in keys]).drop(col_name)
-            # recompute remaining Complex Fields in Schema
+
+
             complex_fields = dict(
                 [
                     (field.name, field.dataType)
@@ -102,36 +102,52 @@ def etl_pipeline():
     for k, v in df_flaten_dict.items():
         (v
          .write
-         .jdbc(url=url, table=k, mode=mode, properties=properties))        
+         .jdbc(url=url, table=k, mode=mode, properties=properties))  
+        
+    SparkSession.stop()      
     
 
 
+# @task()
+# def visualize_data():
+#     engine = create_engine("postgresql+psycopg2://airflow_user:airflow_password@localhost:5432/airflow_db")
+#     db_conn = engine.connect()
+    
+#     df = pd.read_sql(sql='''SELECT traincategory_name, COUNT(traincategory_name) AS number
+#                             FROM trains_res 
+#                             GROUP BY traincategory_name;''', con=db_conn)
+    
+#     # Trying to use matplotlib to visualize the data but seem like package did not work (at least on M1 chip)    
+#     # plt.barh(df.iloc[:, 0], df.iloc[:, 1])
+#     # plt.title('Trains summarize')
+#     # plt.savefig()
+    
+#     db_conn.close()
+    
+#     print(df)
+#     return df
 
-default_args = {
-    'owner': 'Nhan_Chau',
-    'retries': 5,
-    'retry_delay': timedelta(minutes=5)
-}
 
 
-with DAG (dag_id = 'railway_v01',
-     default_args = default_args,
-     description = 'Batching processing with Finland railway data',
+
+
+
+
+@dag(dag_id = 'railway_v02',
+     default_args = {'owner': 'Nhan_Chau',
+                     'retries': 5,
+                     'retry_delay': timedelta(minutes=5)},
+     description = 'Batching processing with Finland railway data and visualize data',
      start_date = datetime(2022, 12, 1),
      schedule_interval = '@daily'
-     ) as dag:
+     ) 
+def etl():
+    task1 = etl_pipeline()
+    # task2 = visualize_data()
+    # task1 >> task2
     
+dag = etl()
     
-    
-    
-    
-    etl = PythonOperator(
-        task_id = 'etl_pipeline',
-        python_callable=etl_pipeline
-    )
-    
-    
-    etl 
 
 
 

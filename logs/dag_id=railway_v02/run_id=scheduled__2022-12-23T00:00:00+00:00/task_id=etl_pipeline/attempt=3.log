@@ -1,0 +1,110 @@
+[2023-01-15T10:11:23.461+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-23T00:00:00+00:00 [queued]>
+[2023-01-15T10:11:23.808+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-23T00:00:00+00:00 [queued]>
+[2023-01-15T10:11:23.819+0200] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T10:11:23.820+0200] {taskinstance.py:1284} INFO - Starting attempt 3 of 6
+[2023-01-15T10:11:23.820+0200] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T10:11:23.987+0200] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): etl_pipeline> on 2022-12-23 00:00:00+00:00
+[2023-01-15T10:11:24.061+0200] {standard_task_runner.py:55} INFO - Started process 13853 to run task
+[2023-01-15T10:11:24.127+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'etl_pipeline', 'scheduled__2022-12-23T00:00:00+00:00', '--job-id', '337', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmpo4niwvpm']
+[2023-01-15T10:11:24.163+0200] {standard_task_runner.py:83} INFO - Job 337: Subtask etl_pipeline
+[2023-01-15T10:11:25.182+0200] {task_command.py:389} INFO - Running <TaskInstance: railway_v02.etl_pipeline scheduled__2022-12-23T00:00:00+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-01-15T10:11:25.915+0200] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=etl_pipeline
+AIRFLOW_CTX_EXECUTION_DATE=2022-12-23T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-12-23T00:00:00+00:00
+[2023-01-15T10:16:33.282+0200] {clientserver.py:538} INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 516, in send_command
+    raise Py4JNetworkError("Answer from Java side is empty")
+py4j.protocol.Py4JNetworkError: Answer from Java side is empty
+[2023-01-15T10:16:34.406+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:34.556+0200] {java_gateway.py:1055} ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 516, in send_command
+    raise Py4JNetworkError("Answer from Java side is empty")
+py4j.protocol.Py4JNetworkError: Answer from Java side is empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+[2023-01-15T10:16:34.605+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:34.841+0200] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/decorators/base.py", line 217, in execute
+    return_value = super().execute(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/dags/fetching_api.py", line 35, in etl_pipeline
+    .getOrCreate())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/sql/session.py", line 269, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/context.py", line 483, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/context.py", line 197, in __init__
+    self._do_init(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/context.py", line 282, in _do_init
+    self._jsc = jsc or self._initialize_context(self._conf._jconf)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/context.py", line 402, in _initialize_context
+    return self._jvm.JavaSparkContext(jconf)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/java_gateway.py", line 1585, in __call__
+    return_value = get_return_value(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext
+[2023-01-15T10:16:35.222+0200] {clientserver.py:538} INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 54] Connection reset by peer
+[2023-01-15T10:16:35.419+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.433+0200] {java_gateway.py:1055} ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+[2023-01-15T10:16:35.444+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.477+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.478+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.495+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.518+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.568+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.570+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.581+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.589+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.603+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.604+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.632+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.645+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.661+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.695+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.716+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.746+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:35.770+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:36.200+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T10:16:39.161+0200] {taskinstance.py:1322} INFO - Marking task as UP_FOR_RETRY. dag_id=railway_v02, task_id=etl_pipeline, execution_date=20221223T000000, start_date=20230115T081123, end_date=20230115T081638
+[2023-01-15T10:16:41.175+0200] {standard_task_runner.py:100} ERROR - Failed to execute job 337 for task etl_pipeline (An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext; 13853)
