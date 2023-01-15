@@ -1,0 +1,29 @@
+[2023-01-14T20:22:50.673+0200] {processor.py:153} INFO - Started process (PID=77359) to work on /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py
+[2023-01-14T20:22:50.676+0200] {processor.py:743} INFO - Processing file /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2023-01-14T20:22:50.676+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:22:50.676+0200] {dagbag.py:538} INFO - Filling up the DagBag from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py
+[2023-01-14T20:22:50.691+0200] {processor.py:753} INFO - DAG(s) dict_keys(['example_task_group']) retrieved from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py
+[2023-01-14T20:22:51.088+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:22:51.088+0200] {manager.py:504} INFO - Created Permission View: can edit on DAG:example_task_group
+[2023-01-14T20:22:51.126+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:22:51.126+0200] {manager.py:504} INFO - Created Permission View: can read on DAG:example_task_group
+[2023-01-14T20:22:51.129+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:22:51.129+0200] {manager.py:504} INFO - Created Permission View: can delete on DAG:example_task_group
+[2023-01-14T20:22:51.129+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:22:51.129+0200] {dag.py:2676} INFO - Sync 1 DAGs
+[2023-01-14T20:22:51.135+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:22:51.135+0200] {dag.py:2697} INFO - Creating ORM DAG for example_task_group
+[2023-01-14T20:22:51.140+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:22:51.140+0200] {dag.py:3423} INFO - Setting next_dagrun for example_task_group to 2023-01-13T18:22:51.139980+00:00, run_after=2023-01-14T18:22:51.139980+00:00
+[2023-01-14T20:22:51.149+0200] {processor.py:175} INFO - Processing /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py took 0.476 seconds
+[2023-01-14T20:24:06.764+0200] {processor.py:153} INFO - Started process (PID=78107) to work on /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py
+[2023-01-14T20:24:06.767+0200] {processor.py:743} INFO - Processing file /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2023-01-14T20:24:06.768+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:06.768+0200] {dagbag.py:538} INFO - Filling up the DagBag from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py
+[2023-01-14T20:24:06.783+0200] {processor.py:753} INFO - DAG(s) dict_keys(['example_task_group']) retrieved from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py
+[2023-01-14T20:24:07.125+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:07.125+0200] {dag.py:2676} INFO - Sync 1 DAGs
+[2023-01-14T20:24:07.134+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:07.134+0200] {dag.py:3423} INFO - Setting next_dagrun for example_task_group to 2023-01-13T18:24:07.134400+00:00, run_after=2023-01-14T18:24:07.134400+00:00
+[2023-01-14T20:24:07.143+0200] {processor.py:175} INFO - Processing /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py took 0.379 seconds
+[2023-01-14T20:25:39.987+0200] {processor.py:153} INFO - Started process (PID=78688) to work on /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py
+[2023-01-14T20:25:39.990+0200] {processor.py:743} INFO - Processing file /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py for tasks to queue
+[2023-01-14T20:25:39.990+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:39.990+0200] {dagbag.py:538} INFO - Filling up the DagBag from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py
+[2023-01-14T20:25:40.005+0200] {processor.py:753} INFO - DAG(s) dict_keys(['example_task_group']) retrieved from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py
+[2023-01-14T20:25:40.396+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:40.396+0200] {manager.py:504} INFO - Created Permission View: can read on DAG:example_task_group
+[2023-01-14T20:25:40.434+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:40.434+0200] {manager.py:504} INFO - Created Permission View: can delete on DAG:example_task_group
+[2023-01-14T20:25:40.437+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:40.437+0200] {manager.py:504} INFO - Created Permission View: can edit on DAG:example_task_group
+[2023-01-14T20:25:40.437+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:40.437+0200] {dag.py:2676} INFO - Sync 1 DAGs
+[2023-01-14T20:25:40.443+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:40.443+0200] {dag.py:2697} INFO - Creating ORM DAG for example_task_group
+[2023-01-14T20:25:40.448+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:40.448+0200] {dag.py:3423} INFO - Setting next_dagrun for example_task_group to 2023-01-13T18:25:40.448239+00:00, run_after=2023-01-14T18:25:40.448239+00:00
+[2023-01-14T20:25:40.458+0200] {processor.py:175} INFO - Processing /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_task_group.py took 0.471 seconds

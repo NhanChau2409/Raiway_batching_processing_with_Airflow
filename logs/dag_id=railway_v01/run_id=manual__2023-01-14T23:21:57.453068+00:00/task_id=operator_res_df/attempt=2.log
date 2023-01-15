@@ -1,0 +1,48 @@
+[2023-01-15T02:10:31.834+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v01.operator_res_df manual__2023-01-14T23:21:57.453068+00:00 [queued]>
+[2023-01-15T02:10:31.887+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v01.operator_res_df manual__2023-01-14T23:21:57.453068+00:00 [queued]>
+[2023-01-15T02:10:31.889+0200] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T02:10:31.890+0200] {taskinstance.py:1284} INFO - Starting attempt 2 of 6
+[2023-01-15T02:10:31.891+0200] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T02:10:31.960+0200] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): operator_res_df> on 2023-01-14 23:21:57.453068+00:00
+[2023-01-15T02:10:31.988+0200] {standard_task_runner.py:55} INFO - Started process 37229 to run task
+[2023-01-15T02:10:32.040+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v01', 'operator_res_df', 'manual__2023-01-14T23:21:57.453068+00:00', '--job-id', '96', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmp0ragp5fb']
+[2023-01-15T02:10:32.047+0200] {standard_task_runner.py:83} INFO - Job 96: Subtask operator_res_df
+[2023-01-15T02:10:32.471+0200] {task_command.py:389} INFO - Running <TaskInstance: railway_v01.operator_res_df manual__2023-01-14T23:21:57.453068+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-01-15T02:10:33.790+0200] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v01
+AIRFLOW_CTX_TASK_ID=operator_res_df
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-14T23:21:57.453068+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-14T23:21:57.453068+00:00
+[2023-01-15T02:14:38.601+0200] {python.py:177} INFO - Done. Returned value was: DataFrame[id: bigint, operatorName: string, operatorShortCode: string, operatorUICCode: bigint, trainNumbers_topLimit: bigint, trainNumbers_bottomLimit: bigint, trainNumbers_trainCategory: bigint, trainNumbers_id: bigint]
+[2023-01-15T02:14:39.030+0200] {xcom.py:629} ERROR - Object of type DataFrame is not JSON serializable. If you are using pickle instead of JSON for XCom, then you need to enable pickle support for XCom in your airflow config or make sure to decorate your object with attr.
+[2023-01-15T02:14:39.150+0200] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 2294, in xcom_push
+    XCom.set(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/utils/session.py", line 72, in wrapper
+    return func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/models/xcom.py", line 234, in set
+    value = cls.serialize_value(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/models/xcom.py", line 627, in serialize_value
+    return json.dumps(value, cls=XComEncoder).encode("UTF-8")
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/utils/json.py", line 176, in encode
+    return super().encode(o)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/utils/json.py", line 170, in default
+    return super().default(o)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type DataFrame is not JSON serializable
+[2023-01-15T02:14:39.231+0200] {taskinstance.py:1322} INFO - Marking task as UP_FOR_RETRY. dag_id=railway_v01, task_id=operator_res_df, execution_date=20230114T232157, start_date=20230115T001031, end_date=20230115T001439
+[2023-01-15T02:14:39.313+0200] {standard_task_runner.py:100} ERROR - Failed to execute job 96 for task operator_res_df (Object of type DataFrame is not JSON serializable; 37229)

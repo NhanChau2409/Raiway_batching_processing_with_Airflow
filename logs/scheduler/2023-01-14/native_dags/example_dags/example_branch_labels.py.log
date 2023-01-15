@@ -1,0 +1,22 @@
+[2023-01-14T20:23:35.681+0200] {processor.py:153} INFO - Started process (PID=77388) to work on /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_branch_labels.py
+[2023-01-14T20:23:35.684+0200] {processor.py:743} INFO - Processing file /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_branch_labels.py for tasks to queue
+[2023-01-14T20:23:35.684+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:35.684+0200] {dagbag.py:538} INFO - Filling up the DagBag from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_branch_labels.py
+[2023-01-14T20:23:35.699+0200] {processor.py:753} INFO - DAG(s) dict_keys(['example_branch_labels']) retrieved from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_branch_labels.py
+[2023-01-14T20:23:36.067+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:36.067+0200] {manager.py:504} INFO - Created Permission View: can delete on DAG:example_branch_labels
+[2023-01-14T20:23:36.071+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:36.071+0200] {manager.py:504} INFO - Created Permission View: can read on DAG:example_branch_labels
+[2023-01-14T20:23:36.074+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:36.074+0200] {manager.py:504} INFO - Created Permission View: can edit on DAG:example_branch_labels
+[2023-01-14T20:23:36.074+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:36.074+0200] {dag.py:2676} INFO - Sync 1 DAGs
+[2023-01-14T20:23:36.110+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:36.110+0200] {dag.py:2697} INFO - Creating ORM DAG for example_branch_labels
+[2023-01-14T20:23:36.114+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:36.114+0200] {dag.py:3423} INFO - Setting next_dagrun for example_branch_labels to 2023-01-13T00:00:00+00:00, run_after=2023-01-14T00:00:00+00:00
+[2023-01-14T20:23:36.122+0200] {processor.py:175} INFO - Processing /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_branch_labels.py took 0.441 seconds
+[2023-01-14T20:25:06.842+0200] {processor.py:153} INFO - Started process (PID=78404) to work on /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_branch_labels.py
+[2023-01-14T20:25:06.848+0200] {processor.py:743} INFO - Processing file /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_branch_labels.py for tasks to queue
+[2023-01-14T20:25:06.849+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:06.848+0200] {dagbag.py:538} INFO - Filling up the DagBag from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_branch_labels.py
+[2023-01-14T20:25:06.870+0200] {processor.py:753} INFO - DAG(s) dict_keys(['example_branch_labels']) retrieved from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_branch_labels.py
+[2023-01-14T20:25:07.286+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:07.286+0200] {manager.py:504} INFO - Created Permission View: can delete on DAG:example_branch_labels
+[2023-01-14T20:25:07.292+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:07.292+0200] {manager.py:504} INFO - Created Permission View: can edit on DAG:example_branch_labels
+[2023-01-14T20:25:07.295+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:07.295+0200] {manager.py:504} INFO - Created Permission View: can read on DAG:example_branch_labels
+[2023-01-14T20:25:07.296+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:07.295+0200] {dag.py:2676} INFO - Sync 1 DAGs
+[2023-01-14T20:25:07.339+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:07.339+0200] {dag.py:2697} INFO - Creating ORM DAG for example_branch_labels
+[2023-01-14T20:25:07.344+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:25:07.344+0200] {dag.py:3423} INFO - Setting next_dagrun for example_branch_labels to 2023-01-13T00:00:00+00:00, run_after=2023-01-14T00:00:00+00:00
+[2023-01-14T20:25:07.352+0200] {processor.py:175} INFO - Processing /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_branch_labels.py took 0.511 seconds

@@ -1,0 +1,26 @@
+[2023-01-14T20:23:24.563+0200] {processor.py:153} INFO - Started process (PID=77382) to work on /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2023-01-14T20:23:24.566+0200] {processor.py:743} INFO - Processing file /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2023-01-14T20:23:24.566+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:24.566+0200] {dagbag.py:538} INFO - Filling up the DagBag from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2023-01-14T20:23:24.685+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:24.685+0200] {taskmixin.py:205} WARNING - Dependency <Task(_PythonDecoratedOperator): prepare_email>, send_email already registered for DAG: example_dag_decorator
+[2023-01-14T20:23:24.685+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:24.685+0200] {taskmixin.py:205} WARNING - Dependency <Task(EmailOperator): send_email>, prepare_email already registered for DAG: example_dag_decorator
+[2023-01-14T20:23:24.720+0200] {processor.py:753} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2023-01-14T20:23:25.013+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:25.013+0200] {manager.py:504} INFO - Created Permission View: can read on DAG:example_dag_decorator
+[2023-01-14T20:23:25.016+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:25.016+0200] {manager.py:504} INFO - Created Permission View: can edit on DAG:example_dag_decorator
+[2023-01-14T20:23:25.019+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:25.019+0200] {manager.py:504} INFO - Created Permission View: can delete on DAG:example_dag_decorator
+[2023-01-14T20:23:25.019+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:25.019+0200] {dag.py:2676} INFO - Sync 1 DAGs
+[2023-01-14T20:23:25.024+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:25.024+0200] {dag.py:2697} INFO - Creating ORM DAG for example_dag_decorator
+[2023-01-14T20:23:25.028+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:23:25.028+0200] {dag.py:3423} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2023-01-14T20:23:25.036+0200] {processor.py:175} INFO - Processing /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.474 seconds
+[2023-01-14T20:24:56.729+0200] {processor.py:153} INFO - Started process (PID=78397) to work on /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2023-01-14T20:24:56.733+0200] {processor.py:743} INFO - Processing file /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py for tasks to queue
+[2023-01-14T20:24:56.733+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:56.733+0200] {dagbag.py:538} INFO - Filling up the DagBag from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2023-01-14T20:24:56.874+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:56.874+0200] {taskmixin.py:205} WARNING - Dependency <Task(_PythonDecoratedOperator): prepare_email>, send_email already registered for DAG: example_dag_decorator
+[2023-01-14T20:24:56.874+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:56.874+0200] {taskmixin.py:205} WARNING - Dependency <Task(EmailOperator): send_email>, prepare_email already registered for DAG: example_dag_decorator
+[2023-01-14T20:24:56.925+0200] {processor.py:753} INFO - DAG(s) dict_keys(['example_dag_decorator']) retrieved from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py
+[2023-01-14T20:24:57.228+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:57.228+0200] {manager.py:504} INFO - Created Permission View: can edit on DAG:example_dag_decorator
+[2023-01-14T20:24:57.233+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:57.232+0200] {manager.py:504} INFO - Created Permission View: can read on DAG:example_dag_decorator
+[2023-01-14T20:24:57.236+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:57.236+0200] {manager.py:504} INFO - Created Permission View: can delete on DAG:example_dag_decorator
+[2023-01-14T20:24:57.236+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:57.236+0200] {dag.py:2676} INFO - Sync 1 DAGs
+[2023-01-14T20:24:57.242+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:57.242+0200] {dag.py:2697} INFO - Creating ORM DAG for example_dag_decorator
+[2023-01-14T20:24:57.247+0200] {logging_mixin.py:137} INFO - [2023-01-14T20:24:57.247+0200] {dag.py:3423} INFO - Setting next_dagrun for example_dag_decorator to None, run_after=None
+[2023-01-14T20:24:57.256+0200] {processor.py:175} INFO - Processing /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/example_dags/example_dag_decorator.py took 0.527 seconds

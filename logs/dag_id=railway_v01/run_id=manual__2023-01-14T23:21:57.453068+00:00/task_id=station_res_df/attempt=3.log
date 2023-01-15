@@ -1,0 +1,77 @@
+[2023-01-15T02:51:57.683+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v01.station_res_df manual__2023-01-14T23:21:57.453068+00:00 [queued]>
+[2023-01-15T02:51:57.743+0200] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: railway_v01.station_res_df manual__2023-01-14T23:21:57.453068+00:00 [queued]>
+[2023-01-15T02:51:57.745+0200] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T02:51:57.745+0200] {taskinstance.py:1284} INFO - Starting attempt 3 of 6
+[2023-01-15T02:51:57.745+0200] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-15T02:51:57.776+0200] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): station_res_df> on 2023-01-14 23:21:57.453068+00:00
+[2023-01-15T02:51:57.797+0200] {standard_task_runner.py:55} INFO - Started process 53356 to run task
+[2023-01-15T02:51:57.823+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v01', 'station_res_df', 'manual__2023-01-14T23:21:57.453068+00:00', '--job-id', '108', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmppt1u4l56']
+[2023-01-15T02:51:57.830+0200] {standard_task_runner.py:83} INFO - Job 108: Subtask station_res_df
+[2023-01-15T02:51:58.348+0200] {task_command.py:389} INFO - Running <TaskInstance: railway_v01.station_res_df manual__2023-01-14T23:21:57.453068+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-01-15T02:51:58.825+0200] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v01
+AIRFLOW_CTX_TASK_ID=station_res_df
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-14T23:21:57.453068+00:00
+AIRFLOW_CTX_TRY_NUMBER=3
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-14T23:21:57.453068+00:00
+[2023-01-15T02:57:30.100+0200] {local_task_job.py:223} WARNING - State of this instance has been externally set to None. Terminating instance.
+[2023-01-15T02:57:32.589+0200] {process_utils.py:129} INFO - Sending Signals.SIGTERM to group 53356. PIDs of all processes in the group: [53478, 53356]
+[2023-01-15T02:57:32.889+0200] {process_utils.py:84} INFO - Sending the signal Signals.SIGTERM to group 53356
+[2023-01-15T02:57:33.685+0200] {taskinstance.py:1483} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-01-15T02:57:36.684+0200] {clientserver.py:538} INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 1485, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2023-01-15T02:57:39.782+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T02:57:40.734+0200] {java_gateway.py:1055} ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 1485, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+[2023-01-15T02:57:41.266+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-01-15T02:57:42.553+0200] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/decorators/base.py", line 217, in execute
+    return_value = super().execute(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/dags/fetching_api.py", line 47, in respond_to_DF
+    df: DataFrame = spark.createDataFrame(json.loads(res))
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/sql/session.py", line 894, in createDataFrame
+    return self._create_dataframe(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/sql/session.py", line 939, in _create_dataframe
+    jdf = self._jsparkSession.applySchemaToPythonRDD(jrdd.rdd(), struct.json())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/java_gateway.py", line 1321, in __call__
+    return_value = get_return_value(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/sql/utils.py", line 190, in deco
+    return f(*a, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o25.applySchemaToPythonRDD
+[2023-01-15T02:57:55.939+0200] {taskinstance.py:1322} INFO - Marking task as UP_FOR_RETRY. dag_id=railway_v01, task_id=station_res_df, execution_date=20230114T232157, start_date=20230115T005157, end_date=20230115T005754
+[2023-01-15T02:58:08.815+0200] {standard_task_runner.py:100} ERROR - Failed to execute job 108 for task station_res_df (An error occurred while calling o25.applySchemaToPythonRDD; 53356)
+[2023-01-15T02:58:09.538+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=53356, status='terminated', exitcode=1, started='02:51:57') (53356) terminated with exit code 1
+[2023-01-15T02:58:33.012+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=53478, status='terminated', started='02:51:58') (53478) terminated with exit code None
