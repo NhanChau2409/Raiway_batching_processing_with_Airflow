@@ -1,0 +1,34 @@
+[2023-02-03T06:50:39.124+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline manual__2023-02-03T04:36:43.127403+00:00 [queued]>
+[2023-02-03T06:50:39.139+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline manual__2023-02-03T04:36:43.127403+00:00 [queued]>
+[2023-02-03T06:50:39.139+0200] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-03T06:50:39.139+0200] {taskinstance.py:1280} INFO - Starting attempt 1 of 6
+[2023-02-03T06:50:39.140+0200] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-03T06:50:39.153+0200] {taskinstance.py:1300} INFO - Executing <Task(_PythonDecoratedOperator): etl_pipeline> on 2023-02-03 04:36:43.127403+00:00
+[2023-02-03T06:50:39.165+0200] {standard_task_runner.py:55} INFO - Started process 49234 to run task
+[2023-02-03T06:50:39.177+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'etl_pipeline', 'manual__2023-02-03T04:36:43.127403+00:00', '--job-id', '573', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmpv_qvtxxd']
+[2023-02-03T06:50:39.181+0200] {standard_task_runner.py:83} INFO - Job 573: Subtask etl_pipeline
+[2023-02-03T06:50:39.269+0200] {task_command.py:388} INFO - Running <TaskInstance: railway_v02.etl_pipeline manual__2023-02-03T04:36:43.127403+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-02-03T06:50:39.347+0200] {taskinstance.py:1507} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=etl_pipeline
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-03T04:36:43.127403+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-03T04:36:43.127403+00:00
+[2023-02-03T06:51:53.905+0200] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/decorators/base.py", line 217, in execute
+    return_value = super().execute(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/dags/fetching_api.py", line 107, in etl_pipeline
+    SparkSession.stop()
+TypeError: SparkSession.stop() missing 1 required positional argument: 'self'
+[2023-02-03T06:51:53.952+0200] {taskinstance.py:1318} INFO - Marking task as UP_FOR_RETRY. dag_id=railway_v02, task_id=etl_pipeline, execution_date=20230203T043643, start_date=20230203T045039, end_date=20230203T045153
+[2023-02-03T06:51:53.978+0200] {standard_task_runner.py:100} ERROR - Failed to execute job 573 for task etl_pipeline (SparkSession.stop() missing 1 required positional argument: 'self'; 49234)
+[2023-02-03T06:51:53.997+0200] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-02-03T06:51:54.030+0200] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

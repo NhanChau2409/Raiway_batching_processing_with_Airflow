@@ -1,0 +1,44 @@
+[2023-02-04T01:39:06.489+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline manual__2023-02-03T23:35:52.397208+00:00 [queued]>
+[2023-02-04T01:39:06.499+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline manual__2023-02-03T23:35:52.397208+00:00 [queued]>
+[2023-02-04T01:39:06.499+0200] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-04T01:39:06.505+0200] {taskinstance.py:1280} INFO - Starting attempt 2 of 7
+[2023-02-04T01:39:06.507+0200] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-04T01:39:06.515+0200] {taskinstance.py:1300} INFO - Executing <Task(_PythonDecoratedOperator): etl_pipeline> on 2023-02-03 23:35:52.397208+00:00
+[2023-02-04T01:39:06.527+0200] {standard_task_runner.py:55} INFO - Started process 4460 to run task
+[2023-02-04T01:39:06.543+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'etl_pipeline', 'manual__2023-02-03T23:35:52.397208+00:00', '--job-id', '719', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmpz90v5zpr']
+[2023-02-04T01:39:06.545+0200] {standard_task_runner.py:83} INFO - Job 719: Subtask etl_pipeline
+[2023-02-04T01:39:06.638+0200] {task_command.py:388} INFO - Running <TaskInstance: railway_v02.etl_pipeline manual__2023-02-03T23:35:52.397208+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-02-04T01:39:06.697+0200] {taskinstance.py:1507} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=etl_pipeline
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-03T23:35:52.397208+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-03T23:35:52.397208+00:00
+[2023-02-04T01:39:06.817+0200] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/decorators/base.py", line 217, in execute
+    return_value = super().execute(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/dags/fetching_api.py", line 34, in etl_pipeline
+    .getOrCreate())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/sql/session.py", line 269, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/context.py", line 483, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/context.py", line 195, in __init__
+    SparkContext._ensure_initialized(self, gateway=gateway, conf=conf)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/context.py", line 417, in _ensure_initialized
+    SparkContext._gateway = gateway or launch_gateway(conf)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/java_gateway.py", line 106, in launch_gateway
+    raise RuntimeError("Java gateway process exited before sending its port number")
+RuntimeError: Java gateway process exited before sending its port number
+[2023-02-04T01:39:06.828+0200] {taskinstance.py:1318} INFO - Marking task as UP_FOR_RETRY. dag_id=railway_v02, task_id=etl_pipeline, execution_date=20230203T233552, start_date=20230203T233906, end_date=20230203T233906
+[2023-02-04T01:39:06.838+0200] {standard_task_runner.py:100} ERROR - Failed to execute job 719 for task etl_pipeline (Java gateway process exited before sending its port number; 4460)
+[2023-02-04T01:39:06.878+0200] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-02-04T01:39:06.893+0200] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

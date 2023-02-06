@@ -1,0 +1,88 @@
+[2023-02-03T06:34:59.839+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline manual__2023-01-15T10:29:20.696392+00:00 [queued]>
+[2023-02-03T06:34:59.877+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.etl_pipeline manual__2023-01-15T10:29:20.696392+00:00 [queued]>
+[2023-02-03T06:34:59.883+0200] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-03T06:34:59.886+0200] {taskinstance.py:1280} INFO - Starting attempt 2 of 6
+[2023-02-03T06:34:59.914+0200] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-03T06:34:59.957+0200] {taskinstance.py:1300} INFO - Executing <Task(_PythonDecoratedOperator): etl_pipeline> on 2023-01-15 10:29:20.696392+00:00
+[2023-02-03T06:34:59.979+0200] {standard_task_runner.py:55} INFO - Started process 44392 to run task
+[2023-02-03T06:34:59.989+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'etl_pipeline', 'manual__2023-01-15T10:29:20.696392+00:00', '--job-id', '552', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmp27eaq1z0']
+[2023-02-03T06:34:59.995+0200] {standard_task_runner.py:83} INFO - Job 552: Subtask etl_pipeline
+[2023-02-03T06:35:00.176+0200] {task_command.py:388} INFO - Running <TaskInstance: railway_v02.etl_pipeline manual__2023-01-15T10:29:20.696392+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-02-03T06:35:00.296+0200] {taskinstance.py:1507} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=etl_pipeline
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-15T10:29:20.696392+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-15T10:29:20.696392+00:00
+[2023-02-03T06:37:36.989+0200] {local_task_job.py:272} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2023-02-03T06:37:37.324+0200] {process_utils.py:129} INFO - Sending Signals.SIGTERM to group 44392. PIDs of all processes in the group: [44451, 45492, 45507, 45514, 45520, 45523, 45525, 45542, 45552, 45561, 44392]
+[2023-02-03T06:37:37.330+0200] {process_utils.py:84} INFO - Sending the signal Signals.SIGTERM to group 44392
+[2023-02-03T06:37:37.497+0200] {taskinstance.py:1479} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-02-03T06:37:37.853+0200] {clientserver.py:538} INFO - Error while receiving.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 1481, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2023-02-03T06:37:38.299+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-02-03T06:37:38.361+0200] {java_gateway.py:1055} ERROR - Exception while sending command.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 1481, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/clientserver.py", line 539, in send_command
+    raise Py4JNetworkError(
+py4j.protocol.Py4JNetworkError: Error while sending or receiving
+[2023-02-03T06:37:38.425+0200] {clientserver.py:543} INFO - Closing down clientserver connection
+[2023-02-03T06:37:38.554+0200] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/decorators/base.py", line 217, in execute
+    return_value = super().execute(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/dags/fetching_api.py", line 96, in etl_pipeline
+    df_flaten_dict = {k: flaten_df(v) for (k,v) in df_dict.items()}
+  File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/dags/fetching_api.py", line 96, in <dictcomp>
+    df_flaten_dict = {k: flaten_df(v) for (k,v) in df_dict.items()}
+  File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/dags/fetching_api.py", line 78, in flaten_df
+    .rdd.flatMap(lambda x: x)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/sql/dataframe.py", line 175, in rdd
+    jrdd = self._jdf.javaToPython()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/java_gateway.py", line 1321, in __call__
+    return_value = get_return_value(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pyspark/sql/utils.py", line 190, in deco
+    return f(*a, **kw)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/py4j/protocol.py", line 334, in get_return_value
+    raise Py4JError(
+py4j.protocol.Py4JError: An error occurred while calling o110.javaToPython
+[2023-02-03T06:37:40.232+0200] {taskinstance.py:1318} INFO - Marking task as UP_FOR_RETRY. dag_id=railway_v02, task_id=etl_pipeline, execution_date=20230115T102920, start_date=20230203T043459, end_date=20230203T043740
+[2023-02-03T06:37:41.186+0200] {standard_task_runner.py:100} ERROR - Failed to execute job 552 for task etl_pipeline (An error occurred while calling o110.javaToPython; 44392)
+[2023-02-03T06:37:41.844+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=44392, status='terminated', exitcode=1, started='06:34:59') (44392) terminated with exit code 1
+[2023-02-03T06:37:44.436+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=45507, status='terminated', started='06:37:29') (45507) terminated with exit code None
+[2023-02-03T06:37:44.501+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=45561, status='terminated', started='06:37:31') (45561) terminated with exit code None
+[2023-02-03T06:37:44.503+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=45552, status='terminated', started='06:37:31') (45552) terminated with exit code None
+[2023-02-03T06:37:44.505+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=45523, status='terminated', started='06:37:30') (45523) terminated with exit code None
+[2023-02-03T06:37:44.507+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=45514, status='terminated', started='06:37:30') (45514) terminated with exit code None
+[2023-02-03T06:37:44.510+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=45520, status='terminated', started='06:37:30') (45520) terminated with exit code None
+[2023-02-03T06:37:44.653+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=45525, status='terminated', started='06:37:30') (45525) terminated with exit code None
+[2023-02-03T06:37:44.655+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=45542, status='terminated', started='06:37:30') (45542) terminated with exit code None
+[2023-02-03T06:37:45.879+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=45492, status='terminated', started='06:37:27') (45492) terminated with exit code None
+[2023-02-03T06:37:51.846+0200] {process_utils.py:79} INFO - Process psutil.Process(pid=44451, status='terminated', started='06:35:00') (44451) terminated with exit code None

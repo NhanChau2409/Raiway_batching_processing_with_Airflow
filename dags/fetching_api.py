@@ -10,16 +10,14 @@ from pyspark.sql import functions as F
 from pyspark.sql import DataFrame
 from pyspark.sql.types import ArrayType, StructType, MapType
 
-
 # To succes in pulling API from Airflow
 import os
 os.environ["no_proxy"]="*"
 
-
-# import psycopg2
-# import pandas as pd
-# from sqlalchemy import create_engine
-# # import matplotlib.pyplot as plt
+import psycopg2
+import pandas as pd
+from sqlalchemy import create_engine
+import matplotlib.pyplot as plt
 
 
 
@@ -104,34 +102,7 @@ def etl_pipeline():
          .write
          .jdbc(url=url, table=k, mode=mode, properties=properties))  
         
-    SparkSession.stop()      
-    
-
-
-# @task()
-# def visualize_data():
-#     engine = create_engine("postgresql+psycopg2://airflow_user:airflow_password@localhost:5432/airflow_db")
-#     db_conn = engine.connect()
-    
-#     df = pd.read_sql(sql='''SELECT traincategory_name, COUNT(traincategory_name) AS number
-#                             FROM trains_res 
-#                             GROUP BY traincategory_name;''', con=db_conn)
-    
-#     # Trying to use matplotlib to visualize the data but seem like package did not work (at least on M1 chip)    
-#     # plt.barh(df.iloc[:, 0], df.iloc[:, 1])
-#     # plt.title('Trains summarize')
-#     # plt.savefig()
-    
-#     db_conn.close()
-    
-#     print(df)
-#     return df
-
-
-
-
-
-
+    spark.stop()      
 
 @dag(dag_id = 'railway_v02',
      default_args = {'owner': 'Nhan_Chau',
@@ -142,14 +113,6 @@ def etl_pipeline():
      schedule_interval = '@daily'
      ) 
 def etl():
-    task1 = etl_pipeline()
-    # task2 = visualize_data()
-    # task1 >> task2
+    etl_pipeline()
     
-dag = etl()
-    
-
-
-
-
-
+etl()
