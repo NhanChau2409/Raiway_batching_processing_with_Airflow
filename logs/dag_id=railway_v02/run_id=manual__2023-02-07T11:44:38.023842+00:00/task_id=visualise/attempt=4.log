@@ -1,0 +1,27 @@
+[2023-02-07T13:50:33.314+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.visualise manual__2023-02-07T11:44:38.023842+00:00 [queued]>
+[2023-02-07T13:50:33.323+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.visualise manual__2023-02-07T11:44:38.023842+00:00 [queued]>
+[2023-02-07T13:50:33.324+0200] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-07T13:50:33.324+0200] {taskinstance.py:1280} INFO - Starting attempt 4 of 9
+[2023-02-07T13:50:33.324+0200] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-07T13:50:33.332+0200] {taskinstance.py:1300} INFO - Executing <Task(BashOperator): visualise> on 2023-02-07 11:44:38.023842+00:00
+[2023-02-07T13:50:33.349+0200] {standard_task_runner.py:55} INFO - Started process 2426 to run task
+[2023-02-07T13:50:33.358+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'visualise', 'manual__2023-02-07T11:44:38.023842+00:00', '--job-id', '782', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmpbmtzvsrq']
+[2023-02-07T13:50:33.363+0200] {standard_task_runner.py:83} INFO - Job 782: Subtask visualise
+[2023-02-07T13:50:33.434+0200] {task_command.py:388} INFO - Running <TaskInstance: railway_v02.visualise manual__2023-02-07T11:44:38.023842+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-02-07T13:50:33.503+0200] {taskinstance.py:1507} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=visualise
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-07T11:44:38.023842+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-07T11:44:38.023842+00:00
+[2023-02-07T13:50:33.505+0200] {subprocess.py:63} INFO - Tmp dir root location: 
+ /var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T
+[2023-02-07T13:50:33.505+0200] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python3 /Users/nhanchau/gitRepo/Raiway_with_AIrflow/visualization.py']
+[2023-02-07T13:50:33.525+0200] {subprocess.py:86} INFO - Output:
+[2023-02-07T13:50:34.643+0200] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-02-07T13:50:34.673+0200] {taskinstance.py:1318} INFO - Marking task as SUCCESS. dag_id=railway_v02, task_id=visualise, execution_date=20230207T114438, start_date=20230207T115033, end_date=20230207T115034
+[2023-02-07T13:50:34.718+0200] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-02-07T13:50:34.739+0200] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

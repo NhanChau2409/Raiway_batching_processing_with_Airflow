@@ -1,0 +1,57 @@
+[2023-02-07T13:47:16.697+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.visualise manual__2023-02-07T11:44:38.023842+00:00 [queued]>
+[2023-02-07T13:47:16.706+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.visualise manual__2023-02-07T11:44:38.023842+00:00 [queued]>
+[2023-02-07T13:47:16.706+0200] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-07T13:47:16.706+0200] {taskinstance.py:1280} INFO - Starting attempt 2 of 7
+[2023-02-07T13:47:16.707+0200] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-07T13:47:16.714+0200] {taskinstance.py:1300} INFO - Executing <Task(BashOperator): visualise> on 2023-02-07 11:44:38.023842+00:00
+[2023-02-07T13:47:16.722+0200] {standard_task_runner.py:55} INFO - Started process 1964 to run task
+[2023-02-07T13:47:16.726+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'visualise', 'manual__2023-02-07T11:44:38.023842+00:00', '--job-id', '780', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmpbwexwpgz']
+[2023-02-07T13:47:16.727+0200] {standard_task_runner.py:83} INFO - Job 780: Subtask visualise
+[2023-02-07T13:47:16.785+0200] {task_command.py:388} INFO - Running <TaskInstance: railway_v02.visualise manual__2023-02-07T11:44:38.023842+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-02-07T13:47:16.851+0200] {taskinstance.py:1507} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=visualise
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-07T11:44:38.023842+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-07T11:44:38.023842+00:00
+[2023-02-07T13:47:16.852+0200] {subprocess.py:63} INFO - Tmp dir root location: 
+ /var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T
+[2023-02-07T13:47:16.853+0200] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python3 /Users/nhanchau/gitRepo/Raiway_with_AIrflow/visualization.py']
+[2023-02-07T13:47:16.862+0200] {subprocess.py:86} INFO - Output:
+[2023-02-07T13:47:18.049+0200] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2023-02-07T13:47:18.050+0200] {subprocess.py:93} INFO -   File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/visualization.py", line 30, in <module>
+[2023-02-07T13:47:18.051+0200] {subprocess.py:93} INFO -     plot(db_conn, 'train-category', 'pie', train_sql)
+[2023-02-07T13:47:18.051+0200] {subprocess.py:93} INFO -   File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/visualization.py", line 19, in plot
+[2023-02-07T13:47:18.052+0200] {subprocess.py:93} INFO -     plt.savefig(f'plot_fig/{date.today()}-{name}')
+[2023-02-07T13:47:18.052+0200] {subprocess.py:93} INFO -   File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/matplotlib/pyplot.py", line 959, in savefig
+[2023-02-07T13:47:18.056+0200] {subprocess.py:93} INFO -     res = fig.savefig(*args, **kwargs)
+[2023-02-07T13:47:18.056+0200] {subprocess.py:93} INFO -   File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/matplotlib/figure.py", line 3285, in savefig
+[2023-02-07T13:47:18.057+0200] {subprocess.py:93} INFO -     self.canvas.print_figure(fname, **kwargs)
+[2023-02-07T13:47:18.057+0200] {subprocess.py:93} INFO -   File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2338, in print_figure
+[2023-02-07T13:47:18.057+0200] {subprocess.py:93} INFO -     result = print_method(
+[2023-02-07T13:47:18.057+0200] {subprocess.py:93} INFO -   File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2204, in <lambda>
+[2023-02-07T13:47:18.058+0200] {subprocess.py:93} INFO -     print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+[2023-02-07T13:47:18.058+0200] {subprocess.py:93} INFO -   File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/matplotlib/_api/deprecation.py", line 410, in wrapper
+[2023-02-07T13:47:18.058+0200] {subprocess.py:93} INFO -     return func(*inner_args, **inner_kwargs)
+[2023-02-07T13:47:18.058+0200] {subprocess.py:93} INFO -   File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 517, in print_png
+[2023-02-07T13:47:18.058+0200] {subprocess.py:93} INFO -     self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+[2023-02-07T13:47:18.059+0200] {subprocess.py:93} INFO -   File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 464, in _print_pil
+[2023-02-07T13:47:18.059+0200] {subprocess.py:93} INFO -     mpl.image.imsave(
+[2023-02-07T13:47:18.059+0200] {subprocess.py:93} INFO -   File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/matplotlib/image.py", line 1667, in imsave
+[2023-02-07T13:47:18.059+0200] {subprocess.py:93} INFO -     image.save(fname, **pil_kwargs)
+[2023-02-07T13:47:18.059+0200] {subprocess.py:93} INFO -   File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/PIL/Image.py", line 2428, in save
+[2023-02-07T13:47:18.060+0200] {subprocess.py:93} INFO -     fp = builtins.open(filename, "w+b")
+[2023-02-07T13:47:18.060+0200] {subprocess.py:93} INFO - FileNotFoundError: [Errno 2] No such file or directory: 'plot_fig/2023-02-07-train-category.png'
+[2023-02-07T13:47:18.154+0200] {subprocess.py:97} INFO - Command exited with return code 1
+[2023-02-07T13:47:18.168+0200] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/bash.py", line 196, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2023-02-07T13:47:18.172+0200] {taskinstance.py:1318} INFO - Marking task as UP_FOR_RETRY. dag_id=railway_v02, task_id=visualise, execution_date=20230207T114438, start_date=20230207T114716, end_date=20230207T114718
+[2023-02-07T13:47:18.183+0200] {standard_task_runner.py:100} ERROR - Failed to execute job 780 for task visualise (Bash command failed. The command returned a non-zero exit code 1.; 1964)
+[2023-02-07T13:47:18.212+0200] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-02-07T13:47:18.232+0200] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

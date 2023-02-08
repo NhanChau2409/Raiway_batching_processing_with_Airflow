@@ -4,6 +4,10 @@ from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
 from datetime import date
 
+import os
+import sys 
+sys.path.append(os.path.abspath("/Users/nhanchau/gitRepo/Raiway_with_AIrflow/private_key.py"))
+from private_key import *
 
 def plot(db_conn, name, type, sql):
     '''Plot bar chart with first columns as name of object and second column is amount'''
@@ -16,11 +20,11 @@ def plot(db_conn, name, type, sql):
             plt.pie(x=df.iloc[:, 1], labels=df.iloc[:, 0])
             
     plt.title(name)
-    plt.savefig(f'plot_fig/{date.today()}-{name}')
+    plt.savefig(f'/Users/nhanchau/gitRepo/Raiway_with_AIrflow/plot_fig/{date.today()}-{name}')
     plt.close()
     
 if __name__ == '__main__':
-    engine = create_engine("postgresql+psycopg2://airflow_user:airflow_password@localhost:5432/airflow_db")
+    engine = create_engine(f"postgresql+psycopg2://{AIRFLOW_USERNAME}:{AIRFLOW_PASSWORD}@localhost:5432/airflow_db")
     db_conn = engine.connect()
     
     train_sql= 'SELECT traincategory_name, COUNT(traincategory_name) AS number FROM trains_res GROUP BY traincategory_name;'

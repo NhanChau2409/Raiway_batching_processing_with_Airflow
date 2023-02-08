@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from airflow.decorators import dag, task
+from airflow.operators.bash import BashOperator
 
 import requests as re
 import json
@@ -19,9 +19,11 @@ import pandas as pd
 from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
 
+import sys 
+sys.path.append(os.path.abspath("/Users/nhanchau/gitRepo/Raiway_with_AIrflow/private_key.py"))
 
+from private_key import *
 
-@task()
 def etl_pipeline():
     
     PATH_TO_JAR_POSTGRE = '/Users/nhanchau/Desktop/postgresql-42.5.1.jar'
@@ -95,7 +97,7 @@ def etl_pipeline():
     # -------------------------------LOAD-------------------------------    
     mode = "overwrite"
     url = "jdbc:postgresql://localhost:5432/airflow_db"
-    properties = {"user": "airflow_user","password": "airflow_pass","driver": "org.postgresql.Driver"}
+    properties = {"user": AIRFLOW_USERNAME, "password": AIRFLOW_PASSWORD, "driver": "org.postgresql.Driver"}
 
     for k, v in df_flaten_dict.items():
         (v
@@ -104,15 +106,24 @@ def etl_pipeline():
         
     spark.stop()      
 
-@dag(dag_id = 'railway_v02',
-     default_args = {'owner': 'Nhan_Chau',
+with DAG(dag_id = 'railway_v02',
+         default_args = {'owner': 'Nhan_Chau',
                      'retries': 5,
                      'retry_delay': timedelta(minutes=5)},
-     description = 'Batching processing with Finland railway data and visualize data',
-     start_date = datetime(2022, 12, 1),
-     schedule_interval = '@daily'
-     ) 
-def etl():
-    etl_pipeline()
+         description = 'Batching processing with Finland railway data and visualize data',
+         start_date = datetime(2022, 12, 1),
+         schedule_interval = '0 0 * * 1'
+         ) as dag:
     
-etl()
+    etl = PythonOperator(
+        task_id= 'etl_pipeline', 
+        python_callable= etl_pipeline
+        )
+    
+    visualise = BashOperator(
+        task_id = 'visualise',
+        bash_command='python3 /Users/nhanchau/gitRepo/Raiway_with_AIrflow/visualization.py'
+        )
+
+    
+    etl >> visualise

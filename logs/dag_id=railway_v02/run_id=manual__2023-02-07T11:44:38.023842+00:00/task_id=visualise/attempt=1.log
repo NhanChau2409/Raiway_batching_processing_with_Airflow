@@ -1,0 +1,34 @@
+[2023-02-07T13:45:03.626+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.visualise manual__2023-02-07T11:44:38.023842+00:00 [queued]>
+[2023-02-07T13:45:03.635+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.visualise manual__2023-02-07T11:44:38.023842+00:00 [queued]>
+[2023-02-07T13:45:03.635+0200] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-07T13:45:03.636+0200] {taskinstance.py:1280} INFO - Starting attempt 1 of 6
+[2023-02-07T13:45:03.636+0200] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-07T13:45:03.646+0200] {taskinstance.py:1300} INFO - Executing <Task(BashOperator): visualise> on 2023-02-07 11:44:38.023842+00:00
+[2023-02-07T13:45:03.654+0200] {standard_task_runner.py:55} INFO - Started process 1685 to run task
+[2023-02-07T13:45:03.658+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'visualise', 'manual__2023-02-07T11:44:38.023842+00:00', '--job-id', '779', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmpa692eql9']
+[2023-02-07T13:45:03.660+0200] {standard_task_runner.py:83} INFO - Job 779: Subtask visualise
+[2023-02-07T13:45:03.711+0200] {task_command.py:388} INFO - Running <TaskInstance: railway_v02.visualise manual__2023-02-07T11:44:38.023842+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-02-07T13:45:03.756+0200] {taskinstance.py:1507} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=visualise
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-07T11:44:38.023842+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-07T11:44:38.023842+00:00
+[2023-02-07T13:45:03.757+0200] {subprocess.py:63} INFO - Tmp dir root location: 
+ /var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T
+[2023-02-07T13:45:03.758+0200] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python3 visualization.py']
+[2023-02-07T13:45:03.767+0200] {subprocess.py:86} INFO - Output:
+[2023-02-07T13:45:03.798+0200] {subprocess.py:93} INFO - /Library/Frameworks/Python.framework/Versions/3.10/bin/python3: can't open file '/private/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/airflowtmp2tp1fsty/visualization.py': [Errno 2] No such file or directory
+[2023-02-07T13:45:03.800+0200] {subprocess.py:97} INFO - Command exited with return code 2
+[2023-02-07T13:45:03.810+0200] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/bash.py", line 196, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2023-02-07T13:45:03.814+0200] {taskinstance.py:1318} INFO - Marking task as UP_FOR_RETRY. dag_id=railway_v02, task_id=visualise, execution_date=20230207T114438, start_date=20230207T114503, end_date=20230207T114503
+[2023-02-07T13:45:03.822+0200] {standard_task_runner.py:100} ERROR - Failed to execute job 779 for task visualise (Bash command failed. The command returned a non-zero exit code 2.; 1685)
+[2023-02-07T13:45:03.834+0200] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-02-07T13:45:03.848+0200] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check
