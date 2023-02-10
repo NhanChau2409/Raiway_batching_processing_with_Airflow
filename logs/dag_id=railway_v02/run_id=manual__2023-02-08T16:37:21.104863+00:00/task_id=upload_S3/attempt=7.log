@@ -1,0 +1,59 @@
+[2023-02-09T09:34:04.247+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.upload_S3 manual__2023-02-08T16:37:21.104863+00:00 [queued]>
+[2023-02-09T09:34:04.256+0200] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: railway_v02.upload_S3 manual__2023-02-08T16:37:21.104863+00:00 [queued]>
+[2023-02-09T09:34:04.256+0200] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-09T09:34:04.256+0200] {taskinstance.py:1280} INFO - Starting attempt 7 of 11
+[2023-02-09T09:34:04.256+0200] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-09T09:34:04.266+0200] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): upload_S3> on 2023-02-08 16:37:21.104863+00:00
+[2023-02-09T09:34:04.278+0200] {standard_task_runner.py:55} INFO - Started process 54566 to run task
+[2023-02-09T09:34:04.289+0200] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'railway_v02', 'upload_S3', 'manual__2023-02-08T16:37:21.104863+00:00', '--job-id', '794', '--raw', '--subdir', 'DAGS_FOLDER/fetching_api.py', '--cfg-path', '/var/folders/qr/k2__dmk5697g2jyd7w2tpyt80000gn/T/tmpuw15srpg']
+[2023-02-09T09:34:04.295+0200] {standard_task_runner.py:83} INFO - Job 794: Subtask upload_S3
+[2023-02-09T09:34:04.362+0200] {task_command.py:388} INFO - Running <TaskInstance: railway_v02.upload_S3 manual__2023-02-08T16:37:21.104863+00:00 [running]> on host nhanchaus-macbook-air.local
+[2023-02-09T09:34:04.424+0200] {taskinstance.py:1507} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Nhan_Chau
+AIRFLOW_CTX_DAG_ID=railway_v02
+AIRFLOW_CTX_TASK_ID=upload_S3
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-08T16:37:21.104863+00:00
+AIRFLOW_CTX_TRY_NUMBER=7
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-08T16:37:21.104863+00:00
+[2023-02-09T09:34:05.207+0200] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/boto3/s3/transfer.py", line 292, in upload_file
+    future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/s3transfer/futures.py", line 103, in result
+    return self._coordinator.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/s3transfer/futures.py", line 266, in result
+    raise self._exception
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/s3transfer/tasks.py", line 139, in __call__
+    return self._execute_main(kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/s3transfer/tasks.py", line 162, in _execute_main
+    return_value = self._main(**kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/s3transfer/upload.py", line 758, in _main
+    client.put_object(Bucket=bucket, Key=key, Body=body, **extra_args)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/botocore/client.py", line 530, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/botocore/client.py", line 960, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (AccessDenied) when calling the PutObject operation: Access Denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/Users/nhanchau/gitRepo/Raiway_with_AIrflow/dags/fetching_api.py", line 127, in upload_S3
+    s3.Bucket('airflow-bucket').upload_file(Filename = os.path.join(root,file), Key= file)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/boto3/s3/inject.py", line 233, in bucket_upload_file
+    return self.meta.client.upload_file(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/boto3/s3/inject.py", line 143, in upload_file
+    return transfer.upload_file(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/boto3/s3/transfer.py", line 298, in upload_file
+    raise S3UploadFailedError(
+boto3.exceptions.S3UploadFailedError: Failed to upload /Users/nhanchau/gitRepo/Raiway_with_AIrflow/plot_fig/2023-02-07-operator.png to airflow-bucket/2023-02-07-operator.png: An error occurred (AccessDenied) when calling the PutObject operation: Access Denied
+[2023-02-09T09:34:05.219+0200] {taskinstance.py:1318} INFO - Marking task as UP_FOR_RETRY. dag_id=railway_v02, task_id=upload_S3, execution_date=20230208T163721, start_date=20230209T073404, end_date=20230209T073405
+[2023-02-09T09:34:05.227+0200] {standard_task_runner.py:100} ERROR - Failed to execute job 794 for task upload_S3 (Failed to upload /Users/nhanchau/gitRepo/Raiway_with_AIrflow/plot_fig/2023-02-07-operator.png to airflow-bucket/2023-02-07-operator.png: An error occurred (AccessDenied) when calling the PutObject operation: Access Denied; 54566)
+[2023-02-09T09:34:05.244+0200] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-02-09T09:34:05.266+0200] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -20,9 +20,14 @@ from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
 
 import sys 
-sys.path.append(os.path.abspath("/Users/nhanchau/gitRepo/Raiway_with_AIrflow/private_key.py"))
+sys.path.append(os.path.abspath("/Users/nhanchau/gitRepo/Raiway_with_AIrflow/"))
 
-from private_key import *
+import private_key 
+
+import boto3
+
+
+
 
 def etl_pipeline():
     
@@ -97,7 +102,7 @@ def etl_pipeline():
     # -------------------------------LOAD-------------------------------    
     mode = "overwrite"
     url = "jdbc:postgresql://localhost:5432/airflow_db"
-    properties = {"user": AIRFLOW_USERNAME, "password": AIRFLOW_PASSWORD, "driver": "org.postgresql.Driver"}
+    properties = {"user": private_key.AIRFLOW_USERNAME, "password": private_key.AIRFLOW_PASSWORD, "driver": "org.postgresql.Driver"}
 
     for k, v in df_flaten_dict.items():
         (v
@@ -105,6 +110,23 @@ def etl_pipeline():
          .jdbc(url=url, table=k, mode=mode, properties=properties))  
         
     spark.stop()      
+
+
+
+
+def upload_S3():
+    s3 = boto3.resource(
+        service_name='s3',
+        region_name='eu-north-1',
+        aws_access_key_id= private_key.AWS_ACCESS_KEY,
+        aws_secret_access_key= private_key.AWS_SECRET_KEY
+    )
+    
+    for root,dirs,files in os.walk(os.path.abspath('plot_fig')):
+        for file in files:
+            s3.Bucket('arirflow-bucket').upload_file(Filename = os.path.join(root,file), Key= file)
+
+
 
 with DAG(dag_id = 'railway_v02',
          default_args = {'owner': 'Nhan_Chau',
@@ -124,6 +146,10 @@ with DAG(dag_id = 'railway_v02',
         task_id = 'visualise',
         bash_command='python3 /Users/nhanchau/gitRepo/Raiway_with_AIrflow/visualization.py'
         )
-
     
-    etl >> visualise
+    upload = PythonOperator(
+        task_id = 'upload_S3',
+        python_callable = upload_S3
+    )
+
+    etl >> visualise >> upload

@@ -4,9 +4,6 @@ from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
 from datetime import date
 
-import os
-import sys 
-sys.path.append(os.path.abspath("/Users/nhanchau/gitRepo/Raiway_with_AIrflow/private_key.py"))
 from private_key import *
 
 def plot(db_conn, name, type, sql):

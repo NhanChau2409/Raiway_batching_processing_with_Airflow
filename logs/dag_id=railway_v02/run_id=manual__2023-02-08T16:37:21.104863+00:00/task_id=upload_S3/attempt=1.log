@@ -1,0 +1,2 @@
+[2023-02-08T18:37:25.255+0200] {taskinstance.py:1073} INFO - Dependencies not met for <TaskInstance: railway_v02.upload_S3 manual__2023-02-08T16:37:21.104863+00:00 [queued]>, dependency 'Trigger Rule' FAILED: Task's trigger rule 'all_success' requires all upstream tasks to have succeeded, but found 1 non-success(es). upstream_states=_UpstreamTIStates(success=0, skipped=0, failed=0, upstream_failed=0, removed=0, done=0), upstream_task_ids={'visualise'}
+[2023-02-08T18:37:25.261+0200] {local_task_job.py:147} INFO - Task is not able to be run
