@@ -6,18 +6,18 @@ from datetime import date
 
 from private_key import *
 
-def plot(db_conn, name, type, sql):
+def plot(db_conn, name: str, type, sql):
     '''Plot bar chart with first columns as name of object and second column is amount'''
         
     df = pd.read_sql(sql=sql, con=db_conn)
     match type:
         case 'bar':
-            plt.barh(df.iloc[:, 0], df.iloc[:, 1])
+            plt.barh(df.iloc[:, 0], df.iloc[:, 1], )
         case 'pie':
             plt.pie(x=df.iloc[:, 1], labels=df.iloc[:, 0])
             
-    plt.title(name)
-    plt.savefig(f'/Users/nhanchau/gitRepo/Raiway_with_AIrflow/plot_fig/{date.today()}-{name}')
+    plt.title(name.upper)
+    plt.savefig(f'/Users/nhanchau/gitRepo/Raiway_with_AIrflow/plot_fig/{date.today()}-{name.upper}')
     plt.close()
     
 if __name__ == '__main__':
