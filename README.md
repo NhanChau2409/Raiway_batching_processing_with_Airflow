@@ -36,7 +36,7 @@ Dag contains totally 3 tasks: **etl_pipeline**, **visualization**, **upload_S3**
     - Connect to bucket by `boto3`
     - Upload graph to bucket in format png 
 
-## Notes - Important
+## Problems and Notes - Important
 
 - **Airflow**: 
     - Set up `AIRFLOW_HOME` environment variable as the path to project folder
